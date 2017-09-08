@@ -17,7 +17,7 @@ namespace SnippetWebEditor.Controllers
         }
 
 
-        private ViewModel MakeVM(List<Note> notes, List<Item> items, int itemId = 0, int noteId = 0)
+        public ViewModel MakeVM(List<Note> notes, List<Item> items, int itemId = 0, int noteId = 0)
         {
             ViewModel res = new ViewModel();
             if (itemId > 0)
@@ -37,9 +37,24 @@ namespace SnippetWebEditor.Controllers
                     if (childs.Count > 0)
                     {
                         ChossedList cl = new ChossedList(childs, childs.IndexOf(tmp));
+                        res.table.Add(cl);
                     }
                     tmp = parent;
                 } while (parent != null);
+                res.table.Reverse();
+                parent = current;
+                do
+                {
+                    List<Item> childs = items.Where(i => i.ItemId == parent).ToList();
+                    if (childs.Count > 0)
+                    {
+                        ChossedList cl = new ChossedList(childs, 0);
+                        res.table.Add(cl);
+                    }
+                    else
+                        break;
+                    parent = childs[0];
+                } while (true);
             }
             else
             {
@@ -82,10 +97,10 @@ namespace SnippetWebEditor.Controllers
 
     public class ChossedList
     {
-        public List<int> Parts { get; set; }
+        public List<Item> Parts { get; set; }
         public int ChoosedPart { get; set; }
 
-        public ChossedList(List<int> list, int place) 
+        public ChossedList(List<Item> list, int place) 
         {
             Parts = list;
             ChoosedPart = place;
