@@ -1,17 +1,24 @@
-﻿using SnippetWebEditor.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
-namespace SnippetWebEditor.Controllers
+namespace SnippetWebEditor.Models
 {
-    public class SheetController : Controller
+    public class Repository
     {
         private List<Item> items;
         private List<Note> notes;
-        public SheetController()
+
+        public List<Item> GetItems()
+        {
+            return items;
+        }
+        public List<Note> GetNotes()
+        {
+            return notes;
+        }
+        public Repository()
         {
             Item item1 = new Item { Id = 1, ItemId = null, Title = "1" };
             Item item2 = new Item { Id = 2, ItemId = item1, Title = "2" };
@@ -32,7 +39,7 @@ namespace SnippetWebEditor.Controllers
                 item7, item8, item9, item10,  item11, item12,
             };
 
-            Note note1 = new Note { Id = 1, ItemId = item5, Content = "111111111111111111111", Title = "Note 1"};
+            Note note1 = new Note { Id = 1, ItemId = item5, Content = "111111111111111111111", Title = "Note 1" };
             Note note2 = new Note { Id = 2, ItemId = item7, Content = "222222222222222222222", Title = "Note 2" };
             Note note3 = new Note { Id = 3, ItemId = item8, Content = "333333333333333333333", Title = "Note 3" };
             Note note4 = new Note { Id = 4, ItemId = item11, Content = "444444444444444444444", Title = "Note 4" };
@@ -41,10 +48,5 @@ namespace SnippetWebEditor.Controllers
             notes = new List<Note>() { note1, note2, note3, note4, note5, };
         }
 
-        // GET: Sheet
-        public ActionResult Index()
-        {
-            return View();
-        }
     }
 }

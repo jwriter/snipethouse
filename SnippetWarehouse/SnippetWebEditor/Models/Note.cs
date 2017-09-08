@@ -20,5 +20,10 @@ namespace SnippetWebEditor.Models
         public Item ItemId { get; set; }
 
         public string Title { get; set; }
+
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
     }
 }

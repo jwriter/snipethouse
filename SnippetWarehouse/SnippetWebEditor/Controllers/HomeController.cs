@@ -8,65 +8,7 @@ using System.Web.Mvc;
 namespace SnippetWebEditor.Controllers
 {
     public class HomeController : Controller
-    {
-
-        ViewModel vm;
-        public HomeController()
-        {
-            
-        }
-
-
-        public ViewModel MakeVM(List<Note> notes, List<Item> items, int itemId = 0, int noteId = 0)
-        {
-            ViewModel res = new ViewModel();
-            if (itemId > 0)
-            {
-                Item parent = null;
-                Item current = items.Where(i => i.Id == itemId).FirstOrDefault();
-                if (current == null)
-                {
-                    //TODO
-                    throw new Exception();
-                }
-                Item tmp = current;
-                do
-                {
-                    parent = tmp.ItemId;
-                    List<Item> childs = items.Where(i => i.ItemId == parent).ToList();
-                    if (childs.Count > 0)
-                    {
-                        ChossedList cl = new ChossedList(childs, childs.IndexOf(tmp));
-                        res.table.Add(cl);
-                    }
-                    tmp = parent;
-                } while (parent != null);
-                res.table.Reverse();
-                parent = current;
-                do
-                {
-                    List<Item> childs = items.Where(i => i.ItemId == parent).ToList();
-                    if (childs.Count > 0)
-                    {
-                        ChossedList cl = new ChossedList(childs, 0);
-                        res.table.Add(cl);
-                    }
-                    else
-                        break;
-                    parent = childs[0];
-                } while (true);
-            }
-            else
-            {
-
-            }
-
-
-            return res;
-        }
-
-        
-
+    {        
         public ActionResult Index()
         {
             return View();
@@ -89,9 +31,78 @@ namespace SnippetWebEditor.Controllers
 
     public class ViewModel
     {
-        public List<ChossedList> table { get; set; }
+        public List<ChossedList> Table { get; set; } = new List<ChossedList>();
         public string Title { get; set; }
         public string Text { get; set; }
+
+
+        public ViewModel MakeVM(List<Note> notes, List<Item> items, int itemId = 1, int noteId = 1)
+        {
+            ViewModel res = new ViewModel();
+            if (itemId > 0)
+            {
+                Item parent = null;
+                Item current = items.Where(i => i.Id == itemId).FirstOrDefault();
+                if (current == null)
+                {
+                    //TODO
+                    throw new Exception();
+                }
+                Item tmp = current;
+                do
+                {
+                    parent = tmp.ItemId;
+                    List<Item> childs = items.Where(i => i.ItemId == parent).ToList();
+                    if (childs.Count > 0)
+                    {
+                        ChossedList cl = new ChossedList(childs, childs.IndexOf(tmp));
+                        res.Table.Add(cl);
+                    }
+                    tmp = parent;
+                } while (parent != null);
+                res.Table.Reverse();
+                parent = current;
+                do
+                {
+                    List<Item> childs = items.Where(i => i.ItemId == parent).ToList();
+                    if (childs.Count > 0)
+                    {
+                        ChossedList cl = new ChossedList(childs, 0);
+                        res.Table.Add(cl);
+                    }
+                    else
+                        break;
+                    parent = childs[0];
+                } while (true);
+            }
+            else
+            {
+
+            }
+
+
+            return res;
+        }
+
+
+        public override string ToString()
+        {
+            string res = "";
+            foreach (var item in Table)
+            {
+                for (int i = 0; i < item.Parts.Count; i++)
+                {
+                    res += item.Parts[i].ToString();
+                    if (i == item.ChoosedPart)
+                        res += "_";
+                    res += "; ";
+                }
+                res += Environment.NewLine;
+            }
+            res += "Title" + Title + Environment.NewLine;
+            res += "Text" + Text + Environment.NewLine;
+            return res;
+        }
 
     }
 
