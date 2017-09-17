@@ -18,9 +18,32 @@ namespace SnippetWebEditor.Controllers
         {
             Repository repo = new Repository();
             ViewModel vm = new ViewModel();
+
+            object str = RouteData.Values["id"];
+            int id;
+            try
+            {
+                if (Int32.TryParse((string)str, out id))
+                {
+                    return View(vm.MakeVmItemId(repo.GetNotes(), repo.GetItems(), id));
+                }
+            }
+            catch { }
+
             return View(vm.MakeVM(repo.GetNotes(), repo.GetItems()));
         }
 
+        public ActionResult AddNote()
+        {
+            object str = RouteData.Values["id"];
+            return View();
+        }
+
+        public ActionResult AddItem()
+        {
+            object str = RouteData.Values["id"];
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

@@ -4,6 +4,20 @@
     ViewBag.Title = "Table";
 }
 
-<h2>Table</h2>
+<h2>@Model.Title</h2>
 
-@Model.ToString();
+@foreach (var chList in Model.Table)
+{
+    <div style="width:10%; float:left">
+        @Html.ActionLink("Add...", "AddItem", new { id= chList.Parts[0].ItemId })
+        <br/><br/>
+        @foreach (var item in chList.Parts)
+        {
+            @Html.ActionLink(item.Title, "Table", new {id = item.Id });
+            <br />
+        }
+    </div>
+}
+<div>
+    <div> @Model.Text</div>
+</div>
