@@ -3,5 +3,17 @@
     ViewBag.Title = "AddNote";
 }
 
-<h2>AddNote</h2>
+
+@using (Html.BeginForm("AddNote", "Home", FormMethod.Post))
+{
+    <input type="hidden" value="@ViewBag.ParentId" name="ParentId" />
+
+    <p>Введите название новой записи: </p>
+    @Html.TextBox("NoteTitle", "")
+    <br/>
+    <p>Введите содержимое: </p>
+    @Html.TextArea("NoteText", "", new { rows = 30, columns = 120 })
+    <br/>
+    <p><input type="submit" value="Отправить" /></p>
+}
 

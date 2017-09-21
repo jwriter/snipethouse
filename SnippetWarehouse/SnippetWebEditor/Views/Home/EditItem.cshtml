@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "EditItem";
+}
+
+@using (Html.BeginForm("EditItem", "Home", FormMethod.Post))
+{
+    <input type="hidden" value="@ViewBag.ParentId" name="ParentId" />
+
+    <p>Отредактируйте название нового раздела: </p>
+    @Html.TextArea("ItemText", (string)ViewBag.Content, new { rows = 10, columns = 40 })
+    <br/>
+    <p><input type="submit" value="Отправить" /></p>
+}
+

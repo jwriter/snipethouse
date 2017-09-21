@@ -5,4 +5,12 @@
 
 <h2>Добавить раздел</h2>
 
+@using (Html.BeginForm("AddItem", "Home", FormMethod.Post))
+{
+    <input type="hidden" value="@ViewBag.ParentId" name="ParentId" />
 
+    <p>Введите название нового раздела: </p>
+    @Html.TextBox("ItemText", "")
+
+    <p><input type="submit" value="Отправить" /></p>
+}

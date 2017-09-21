@@ -18,7 +18,7 @@ namespace SnippetWebEditor.Models
         {
             return notes;
         }
-        public Repository()
+        private Repository()
         {
             Item item1 = new Item { Id = 1, ItemId = null, Title = "1" };
             Item item2 = new Item { Id = 2, ItemId = item1, Title = "2" };
@@ -48,5 +48,14 @@ namespace SnippetWebEditor.Models
             notes = new List<Note>() { note1, note2, note3, note4, note5, };
         }
 
+        private static Repository _instance;
+        public static Repository GetInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new Repository();
+            }
+            return _instance;
+        }
     }
 }

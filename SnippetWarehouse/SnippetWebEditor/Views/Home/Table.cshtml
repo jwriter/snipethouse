@@ -17,8 +17,11 @@
             {
                 <div style="border:solid 1px grey; width:100%; padding:7px">
                     <div style="width:100%; height:20px; text-align: right;">
-                        <a class="btn-danger" style="padding:5px; border-radius: 10px; ">x</a>
+                        @Html.ActionLink("х", "DeleteItem", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        @Html.ActionLink("Edit", "EditItem", new { id = item.Id }, new { @class = "btn btn-info" })
+                        @Html.ActionLink("Add note", "AddNote", new { id = item.Id }, new { @class = "btn btn-info" })
                     </div>
+                    <br/><br /><br />
                     <div>
                         @Html.ActionLink(item.Title, "Table", new { id = item.Id });
                     </div>
@@ -32,7 +35,11 @@
         @foreach (var item in Model.Notes)
         {
             <div>
-                @Html.Raw(item.Title);
+
+                @Html.Raw(item.Title) 
+                @Html.ActionLink("х", "DeleteNote", new { id = item.Id }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Edit", "EditNote", new { id = item.Id }, new { @class = "btn btn-info" })
+
             </div>
         }
     </div>
