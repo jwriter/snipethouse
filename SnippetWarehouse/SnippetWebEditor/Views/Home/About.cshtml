@@ -1,69 +1,19 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
-
-<div class="row">
-    @for (int i = 0; i < 4; i++)
-    {
-        <div style="width:10%; float:left">
-            
-            <div style="width:100%; height:30px; text-align: right;">
-                <a class="btn-info" style="padding:5px; border-radius: 10px; ">Add</a>
-            </div>
-            <!--div class="col-lg-1" style="float:left; border:solid 1px black; color:red; width:auto; padding:1px"-->
-                @for (int j = 0; j < 3; j++)
-                {
-                    <div style="border:solid 1px grey; width:100%; padding:7px">
-                        <div style="width:100%; height:20px; text-align: right;">
-                            <a class="btn-danger" style="padding:5px; border-radius: 10px; ">x</a>
-                        </div>
-                        <div>
-                            @Html.Raw(j);
-                            <br />
-                        </div>
-                        
-                    </div>
-
-                }
-         </div>
-    }
-    <div style="width:10%; float: left">
-
-        <div>
-            <p>
-                Title1
-            </p>
-        </div>
-        <div>
-            <p>
-                Title2
-            </p>
-        </div>
-        <div>
-            <p>
-                Title3
-            </p>
-        </div>
-    </div>
-    <div style="margin-left:3%; margin-right:3%; width:30%; float: right">
-
-        <div style="width:100%; height:30px; text-align: right;">
-            <a class="btn-info" style="padding:5px; border-radius: 10px; ">Edit</a>
-            <a class="btn-info" style="padding:5px; border-radius: 10px; ">Delete</a>
-        </div>
-
-        <div>
-            <h4>Title</h4>
-        </div>
-        <div>
-            <p>
-                Now the navigation list and the button are properly aligned. All that is left is to make the items inside the
-                go horizontally. It's easiest to use display: inline-block here, but since we are going full flexbox, let's apply a flexbox-only solution:
-            </p>
-        </div>
-    </div>
+<div class="row" style="background-color:antiquewhite; width:100%">
+    Заголовок
+</div>
+<!--------------------------------->
+<div class="row" >
+    <div style="background-color:azure; width:10%; height:800px; float:left"></div>
+    <div style="background-color:aliceblue; width:10%; height:800px; float:left"></div>
+    <div style="background-color:azure; width:10%; height:800px; float:left"></div>
+    <div style="background-color:aliceblue; width:10%; height:800px; float:left"></div>
+    <div style="width:60%; height:800px; float:left"></div>
+</div>
+<!--------------------------------->
+<div class="row" style="background-color:antiquewhite; width:100%;">
+    инфо
 </div>
