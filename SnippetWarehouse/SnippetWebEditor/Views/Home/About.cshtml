@@ -1,19 +1,124 @@
 ﻿@{
     ViewBag.Title = "About";
 }
+<div class=tab_header>
+    <H2>Название темы</H2>
+</div>
+<div class=tab_col>
+    <div style="height:30px; background-color: aliceblue">
+        <img src="@Url.Content("~/Content/Images/new_content.png")" style="width:20px; height:20px; padding-left: 0px"
+             title="Добавить раздел">
+        <img src="@Url.Content("~/Content/Images/new_item_black.png")" style="width:20px; height:20px; padding-left: 0px"
+             title="Добавить заметку">
+    </div>
+    <div class=tab_elem>
+        <div style="float:left; padding-right: 10px;">
+            <img src="@Url.Content("~/Content/Images/folder_black_in_white.png")" style="width:20px; height:20px;" />
+        </div>
+        <div style="float:left;">
+            Ээээх, хорошо в стране совесткой жить, ээх
+        </div>
+    </div>
+    <div class=tab_selelem>
 
-<div class="row" style="background-color:antiquewhite; width:100%">
-    Заголовок
+        <div style="float:left; padding-right: 10px;">
+            <img src="@Url.Content("~/Content/Images/folder_white_in_blue.png")" style="width:20px; height:20px;">
+        </div>
+        <div style="float:left;">
+            Выходила на берег Катюша выходила на берег крутой
+        </div>
+
+    </div>
+    <div class=tab_elem>
+        <div style="padding-left: 20px">
+            Ээээх, хорошо в стране совесткой жить, ээх
+        </div>
+    </div>
+    <div class=tab_elem>
+        <div style="padding-left: 20px">
+            Выходила на берег Катюша выходила на берег крутой
+        </div>
+    </div>
 </div>
-<!--------------------------------->
-<div class="row" >
-    <div style="background-color:azure; width:10%; height:800px; float:left"></div>
-    <div style="background-color:aliceblue; width:10%; height:800px; float:left"></div>
-    <div style="background-color:azure; width:10%; height:800px; float:left"></div>
-    <div style="background-color:aliceblue; width:10%; height:800px; float:left"></div>
-    <div style="width:60%; height:800px; float:left"></div>
+
+<div class=tab_col>
+    <div class=tab_selelem>
+        <div class=tab_folder>
+            Ээээх, хорошо в стране совесткой жить, ээх
+        </div>
+    </div>
+    <div class=tab_elem>
+        <div class=tab_folder>
+            Выходила на берег Катюша выходила на берег крутой
+        </div>
+    </div>
+    <div class=tab_elem>
+        <div class=tab_folder>
+            Ээээх, хорошо в стране совесткой жить, ээх
+        </div>
+    </div>
+    <div class=tab_elem>
+        <div class=tab_article>
+            Выходила на берег Катюша выходила на берег крутой
+        </div>
+    </div>
 </div>
-<!--------------------------------->
-<div class="row" style="background-color:antiquewhite; width:100%;">
-    инфо
+
+<div class=tab_col>
+    <div class=tab_elem>
+        <div class=tab_folder>
+            Ээээх, хорошо в стране совесткой жить, ээх
+        </div>
+    </div>
+    <div class=tab_elem>
+        <div class=tab_article>
+            Выходила на берег Катюша выходила на берег крутой
+        </div>
+    </div>
+    <div class=tab_elem>
+        <div class=tab_article>
+            Ээээх, хорошо в стране совесткой жить, ээх
+        </div>
+    </div>
+    <div class=tab_selelem>
+        <div class=tab_article>
+            Выходила на берег Катюша выходила на берег крутой
+        </div>
+    </div>
+</div>
+
+<div class=tab_content>
+    <div style="display:flex; background-color: aliceblue">
+        <div style="margin:auto 0;">
+            <img src="@Url.Content("~/Content/Images/glyphicons-208-remove.png")" style="width:20px; height:20px; padding-left: 0px"
+                 title="Удалить заметку">
+            <img src="@Url.Content("~/Content/Images/glyphicons-31-pencil.png")" style="width:20px; height:20px; padding-left: 0px"
+                 title="Редактировать заметку">
+        </div>
+        <div style="padding-left:20px">
+            <h2>Название заметки</h2>
+        </div>
+
+    </div>
+    <div style="padding:20px">
+
+        Арансон Э. Пратканис Э. "Эпоха пропаганды: Механизмы убеждения. Повседневное использование и злоупотребление";
+
+        Вуйма А. "Черный Пиар";
+
+        Чалдини Р. "Психология влияния";
+
+        Харрис Р. "Психология массовых коммуникаций";
+
+        Крысько В.Г. "Секреты психологической войны (цели, задачи, методы, формы, опыт)";
+
+        Матвейчев "Уши машут ослом";
+
+        Оруэл Дж. "1984";
+
+        Роман Ронин "Своя разведка".
+
+        Последняя книга не совсем про манипуляцию, но особенно актуальна с учетом неопределенности в силовых структурах. И хорошо уплотняет по манипуре.
+
+    </div>
 </div>

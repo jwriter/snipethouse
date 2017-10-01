@@ -1,0 +1,41 @@
+.tab_header{
+    width:100%;
+    padding-left:20px;
+    border-bottom: 4px solid #1C6EA4;    
+    /*color: #1C6EA4;*/
+}
+.tab_col {
+    min-width: 100px;
+    max-width: 200px;
+    float: left;
+    border-right: 3px solid #1C6EA4;
+    height: 100%;
+}
+
+
+.tab_elem {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #1C6EA4;
+    display: flex;
+}
+
+.tab_selelem {
+    margin-left: 10px;
+    background: #1C6EA4;
+    color: white;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    border-bottom-left-radius: 20px;
+}
+
+
+.tab_content {
+    height: 100%;
+    border: 10px solid #1C6EA4;
+    display: flow-root;
+}
+
