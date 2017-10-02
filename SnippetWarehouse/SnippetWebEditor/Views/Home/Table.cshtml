@@ -61,3 +61,106 @@
         </div>
     </div>
 </div>
+<br /><br/>
+<!------------------------------------------------------------------------------------------------------------------------------->
+<div class="row">
+    @foreach (var chList in Model.Table)
+    {
+
+        <div style="width:10%; float:left">
+            <div style="width:100%; height:30px; text-align: right;">
+                @Html.ActionLink("Add...", "AddItem", new { id = chList.Parts[0].ItemId }, new { @class = "btn btn-info" })
+            </div>
+
+            @foreach (var item in chList.Parts)
+            {
+                <div style="border:solid 1px grey; width:100%; padding:7px">
+                    <div style="width:100%; height:20px; text-align: right;">
+                        @Html.ActionLink("х", "DeleteItem", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        @Html.ActionLink("Edit", "EditItem", new { id = item.Id }, new { @class = "btn btn-info" })
+                        @Html.ActionLink("Add note", "AddNote", new { id = item.Id }, new { @class = "btn btn-info" })
+                    </div>
+                    <br /><br /><br />
+                    <div>
+                        @Html.ActionLink(item.Title, "Table", new { id = item.Id });
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+    @DrawContent(Model.Title, Model.Text)
+</div>
+<!------------------------------------------------------------------------------------------------------------------------------->
+    @helper DrawContent(string titleContent, string textContent)
+    {
+    <div class=tab_content>
+        <div style="display:flex; background-color: aliceblue">
+            <div style="margin:auto 0;">
+                <img src="@Url.Content("~/Content/Images/glyphicons-208-remove.png")" style="width:20px; height:20px; padding-left: 0px"
+                     title="Удалить заметку">
+                <img src="@Url.Content("~/Content/Images/glyphicons-31-pencil.png")" style="width:20px; height:20px; padding-left: 0px"
+                     title="Редактировать заметку">
+            </div>
+            <div style="padding-left:20px">
+                <h2>@titleContent</h2>
+            </div>
+
+        </div>
+        <div style="padding:20px">
+            @textContent
+        </div>
+    </div>
+}
+
+    @helper DrawSelectedFolder(string text)
+    {
+    <div class=tab_selelem>
+        <div style="float:left; padding-right: 10px;">
+            <img src="@Url.Content("~/Content/Images/folder_white_in_blue.png")" style="width:20px; height:20px;">
+        </div>
+        <div style="float:left;">
+            @text
+        </div>
+    </div>
+}
+
+    @helper DrawSelectedElem(string text)
+    {
+    <div class=tab_selelem>
+        <div style="padding-left: 20px">
+            Выходила на берег Катюша выходила на берег крутой
+        </div>
+    </div>
+}
+
+    @helper DrawFolder(string text)
+    {
+    <div class=tab_elem>
+        <div style="float:left; padding-right: 10px;">
+            <img src="@Url.Content("~/Content/Images/folder_black_in_white.png")" style="width:20px; height:20px;" />
+        </div>
+        <div style="float:left;">
+            @text
+        </div>
+    </div>
+}
+
+    @helper HeaderOfColumn()
+    {
+    <div style="height:30px; background-color: aliceblue">
+        <img src="@Url.Content("~/Content/Images/new_content.png")" style="width:20px; height:20px; padding-left: 0px"
+             title="Добавить раздел">
+        <img src="@Url.Content("~/Content/Images/new_item_black.png")" style="width:20px; height:20px; padding-left: 0px"
+             title="Добавить заметку">
+    </div>
+}
+
+    @helper DrawElem(string text)
+    {
+    <div class=tab_elem>
+        <div style="padding-left: 20px">
+            @text
+        </div>
+    </div>
+}

@@ -5,120 +5,104 @@
     <H2>Название темы</H2>
 </div>
 <div class=tab_col>
+    @HeaderOfColumn()
+    @DrawFolder("Ээээх, хорошо в стране совесткой жить, ээх")    
+    @DrawSelectedFolder("Выходила на берег Катюша выходила на берег крутой")
+    @DrawElem("Ээээх, хорошо в стране совесткой жить, ээх2")
+    @DrawElem("Выходила на берег Катюша выходила на берег крутой2")
+</div>
+
+<div class=tab_col>
+    @HeaderOfColumn()
+    @DrawSelectedFolder("Ээээх, хорошо в стране совесткой жить, ээх")
+    @DrawFolder("Выходила на берег Катюша выходила на берег крутой")
+    @DrawFolder("Ээээх, хорошо в стране совесткой жить, ээх")
+    @DrawElem("Выходила на берег Катюша выходила на берег крутой")
+</div>
+
+<div class=tab_col>
+    @HeaderOfColumn()
+    @DrawFolder("Ээээх, хорошо в стране совесткой жить, ээх")
+    @DrawElem("Выходила на берег Катюша выходила на берег крутой")
+    @DrawElem("Ээээх, хорошо в стране совесткой жить, ээх")
+    @DrawSelectedElem("Выходила на берег Катюша выходила на берег крутой")
+
+</div>
+
+@DrawContent("Название заметки", "цццццццццццццццццццццццццццццццццццццццццц" +
+    "ццццццццццццццццццццццццццццццццццццццццццццццццццццццццццццццццццццццццццц" +
+    "ууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууу")
+
+
+@helper DrawContent(string titleContent, string textContent)
+{
+    <div class=tab_content>
+        <div style="display:flex; background-color: aliceblue">
+            <div style="margin:auto 0;">
+                <img src="@Url.Content("~/Content/Images/glyphicons-208-remove.png")" style="width:20px; height:20px; padding-left: 0px"
+                     title="Удалить заметку">
+                <img src="@Url.Content("~/Content/Images/glyphicons-31-pencil.png")" style="width:20px; height:20px; padding-left: 0px"
+                     title="Редактировать заметку">
+            </div>
+            <div style="padding-left:20px">
+                <h2>@titleContent</h2>
+            </div>
+
+        </div>
+        <div style="padding:20px">
+            @textContent
+        </div>
+    </div>
+}
+
+@helper DrawSelectedFolder(string text)
+{
+    <div class=tab_selelem>
+        <div style="float:left; padding-right: 10px;">
+            <img src="@Url.Content("~/Content/Images/folder_white_in_blue.png")" style="width:20px; height:20px;">
+        </div>
+        <div style="float:left;">
+            @text
+        </div>
+    </div>
+}
+
+@helper DrawSelectedElem(string text)
+{
+    <div class=tab_selelem>
+        <div style="padding-left: 20px">
+            Выходила на берег Катюша выходила на берег крутой
+        </div>
+    </div>
+}
+
+@helper DrawFolder(string text)
+{
+    <div class=tab_elem>
+        <div style="float:left; padding-right: 10px;">
+            <img src="@Url.Content("~/Content/Images/folder_black_in_white.png")" style="width:20px; height:20px;" />
+        </div>
+        <div style="float:left;">
+            @text
+        </div>
+    </div>
+}
+
+@helper HeaderOfColumn()
+{
     <div style="height:30px; background-color: aliceblue">
         <img src="@Url.Content("~/Content/Images/new_content.png")" style="width:20px; height:20px; padding-left: 0px"
              title="Добавить раздел">
         <img src="@Url.Content("~/Content/Images/new_item_black.png")" style="width:20px; height:20px; padding-left: 0px"
              title="Добавить заметку">
     </div>
-    <div class=tab_elem>
-        <div style="float:left; padding-right: 10px;">
-            <img src="@Url.Content("~/Content/Images/folder_black_in_white.png")" style="width:20px; height:20px;" />
-        </div>
-        <div style="float:left;">
-            Ээээх, хорошо в стране совесткой жить, ээх
-        </div>
-    </div>
-    <div class=tab_selelem>
+}
 
-        <div style="float:left; padding-right: 10px;">
-            <img src="@Url.Content("~/Content/Images/folder_white_in_blue.png")" style="width:20px; height:20px;">
-        </div>
-        <div style="float:left;">
-            Выходила на берег Катюша выходила на берег крутой
-        </div>
-
-    </div>
+@helper DrawElem(string text)
+{
     <div class=tab_elem>
         <div style="padding-left: 20px">
-            Ээээх, хорошо в стране совесткой жить, ээх
+            @text
         </div>
     </div>
-    <div class=tab_elem>
-        <div style="padding-left: 20px">
-            Выходила на берег Катюша выходила на берег крутой
-        </div>
-    </div>
-</div>
-
-<div class=tab_col>
-    <div class=tab_selelem>
-        <div class=tab_folder>
-            Ээээх, хорошо в стране совесткой жить, ээх
-        </div>
-    </div>
-    <div class=tab_elem>
-        <div class=tab_folder>
-            Выходила на берег Катюша выходила на берег крутой
-        </div>
-    </div>
-    <div class=tab_elem>
-        <div class=tab_folder>
-            Ээээх, хорошо в стране совесткой жить, ээх
-        </div>
-    </div>
-    <div class=tab_elem>
-        <div class=tab_article>
-            Выходила на берег Катюша выходила на берег крутой
-        </div>
-    </div>
-</div>
-
-<div class=tab_col>
-    <div class=tab_elem>
-        <div class=tab_folder>
-            Ээээх, хорошо в стране совесткой жить, ээх
-        </div>
-    </div>
-    <div class=tab_elem>
-        <div class=tab_article>
-            Выходила на берег Катюша выходила на берег крутой
-        </div>
-    </div>
-    <div class=tab_elem>
-        <div class=tab_article>
-            Ээээх, хорошо в стране совесткой жить, ээх
-        </div>
-    </div>
-    <div class=tab_selelem>
-        <div class=tab_article>
-            Выходила на берег Катюша выходила на берег крутой
-        </div>
-    </div>
-</div>
-
-<div class=tab_content>
-    <div style="display:flex; background-color: aliceblue">
-        <div style="margin:auto 0;">
-            <img src="@Url.Content("~/Content/Images/glyphicons-208-remove.png")" style="width:20px; height:20px; padding-left: 0px"
-                 title="Удалить заметку">
-            <img src="@Url.Content("~/Content/Images/glyphicons-31-pencil.png")" style="width:20px; height:20px; padding-left: 0px"
-                 title="Редактировать заметку">
-        </div>
-        <div style="padding-left:20px">
-            <h2>Название заметки</h2>
-        </div>
-
-    </div>
-    <div style="padding:20px">
-
-        Арансон Э. Пратканис Э. "Эпоха пропаганды: Механизмы убеждения. Повседневное использование и злоупотребление";
-
-        Вуйма А. "Черный Пиар";
-
-        Чалдини Р. "Психология влияния";
-
-        Харрис Р. "Психология массовых коммуникаций";
-
-        Крысько В.Г. "Секреты психологической войны (цели, задачи, методы, формы, опыт)";
-
-        Матвейчев "Уши машут ослом";
-
-        Оруэл Дж. "1984";
-
-        Роман Ронин "Своя разведка".
-
-        Последняя книга не совсем про манипуляцию, но особенно актуальна с учетом неопределенности в силовых структурах. И хорошо уплотняет по манипуре.
-
-    </div>
-</div>
+}
