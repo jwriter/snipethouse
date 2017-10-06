@@ -67,26 +67,20 @@
     @foreach (var chList in Model.Table)
     {
 
-        <div style="width:10%; float:left">
-            <div style="width:100%; height:30px; text-align: right;">
-                @Html.ActionLink("Add...", "AddItem", new { id = chList.Parts[0].ItemId }, new { @class = "btn btn-info" })
-            </div>
-
-            @foreach (var item in chList.Parts)
+        <div class="tab_col">
+            @HeaderOfColumn()
+            @for (int i = 0; i < chList.Parts.Count; i++)
             {
-                <div style="border:solid 1px grey; width:100%; padding:7px">
-                    <div style="width:100%; height:20px; text-align: right;">
-                        @Html.ActionLink("х", "DeleteItem", new { id = item.Id }, new { @class = "btn btn-danger" })
-                        @Html.ActionLink("Edit", "EditItem", new { id = item.Id }, new { @class = "btn btn-info" })
-                        @Html.ActionLink("Add note", "AddNote", new { id = item.Id }, new { @class = "btn btn-info" })
-                    </div>
-                    <br /><br /><br />
-                    <div>
-                        @Html.ActionLink(item.Title, "Table", new { id = item.Id });
-                    </div>
-                </div>
+                if (i == chList.ChoosedPart)
+                {
+                    @DrawSelectedFolder(chList.Parts[i].Title, chList.Parts[i].Id)
+                }
+                else
+                {
+                    @DrawFolder(chList.Parts[i].Title, chList.Parts[i].Id)
+                }
             }
-        </div>
+        </div>        
     }
 
     @DrawContent(Model.Title, Model.Text)
@@ -113,14 +107,14 @@
     </div>
 }
 
-    @helper DrawSelectedFolder(string text)
+    @helper DrawSelectedFolder(string Title, int Id)
     {
     <div class=tab_selelem>
         <div style="float:left; padding-right: 10px;">
             <img src="@Url.Content("~/Content/Images/folder_white_in_blue.png")" style="width:20px; height:20px;">
         </div>
         <div style="float:left;">
-            @text
+            @Html.ActionLink(Title, "Table", new { id = Id })
         </div>
     </div>
 }
@@ -134,16 +128,17 @@
     </div>
 }
 
-    @helper DrawFolder(string text)
-    {
-    <div class=tab_elem>
-        <div style="float:left; padding-right: 10px;">
-            <img src="@Url.Content("~/Content/Images/folder_black_in_white.png")" style="width:20px; height:20px;" />
-        </div>
-        <div style="float:left;">
-            @text
-        </div>
+
+@helper DrawFolder(string Title, int Id)
+{
+<div class=tab_elem>
+    <div style="float:left; padding-right: 10px;">
+        <img src="@Url.Content("~/Content/Images/folder_black_in_white.png")" style="width:20px; height:20px;" />
     </div>
+    <div style="float:left;">
+        @Html.ActionLink(Title, "Table", new { id = Id })
+    </div>
+</div>
 }
 
     @helper HeaderOfColumn()
