@@ -64,20 +64,20 @@
 <br /><br/>
 <!------------------------------------------------------------------------------------------------------------------------------->
 <div class="row">
-    @foreach (var chList in Model.Table)
-    {
+    
+    @for (int j = 0; j < Model.Table.Count; j++)    {
 
         <div class="tab_col">
-            @HeaderOfColumn()
-            @for (int i = 0; i < chList.Parts.Count; i++)
+            @HeaderOfColumn(j + 1)
+            @for (int i = 0; i < Model.Table[j].Parts.Count; i++)
             {
-                if (i == chList.ChoosedPart)
+                if (i == Model.Table[j].ChoosedPart)
                 {
-                    @DrawSelectedFolder(chList.Parts[i].Title, chList.Parts[i].Id)
+                    @DrawSelectedFolder(Model.Table[j].Parts[i].Title, Model.Table[j].Parts[i].Id)
                 }
                 else
                 {
-                    @DrawFolder(chList.Parts[i].Title, chList.Parts[i].Id)
+                    @DrawFolder(Model.Table[j].Parts[i].Title, Model.Table[j].Parts[i].Id)
                 }
             }
         </div>        
@@ -141,8 +141,8 @@
 </div>
 }
 
-    @helper HeaderOfColumn()
-    {
+@helper HeaderOfColumn()
+{
     <div style="height:30px; background-color: aliceblue">
         <img src="@Url.Content("~/Content/Images/new_content.png")" style="width:20px; height:20px; padding-left: 0px"
              title="Добавить раздел">
@@ -151,8 +151,22 @@
     </div>
 }
 
-    @helper DrawElem(string text)
-    {
+@helper HeaderOfColumn(int NumItem)
+{   
+    <div style="height:30px; background-color: aliceblue">
+        <a href=@($"AddItem/{NumItem}")>
+            <img src="@Url.Content("~/Content/Images/new_content.png")" style="width:20px; height:20px; padding-left: 0px"
+                 title="Добавить раздел">
+        </a>
+        <a href=@($"AddNote/{NumItem}")>
+            <img src="@Url.Content("~/Content/Images/new_item_black.png")" style="width:20px; height:20px; padding-left: 0px"
+                    title="Добавить заметку">
+        </a>
+</div>
+}
+
+@helper DrawElem(string text)
+{
     <div class=tab_elem>
         <div style="padding-left: 20px">
             @text
