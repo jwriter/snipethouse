@@ -11,11 +11,11 @@ namespace SnippetWebEditor.Test
         [TestMethod]
         public void TestMakeVM()
         {
-            var repo = new Repository();
+            var repo = Repository.GetInstance();
             var items = repo.GetItems();
             var notes = repo.GetNotes();
-            var vm = new ViewModel();
-            var sel = vm.MakeVM(notes, items);
+            var vm = new DataForView();
+            var sel = vm.MakeData(notes, items);
         }
     }
 }
