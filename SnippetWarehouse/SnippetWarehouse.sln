@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnippetWebEditor", "Snippet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnippetWebEditor.Test", "SnippetWebEditor.Test\SnippetWebEditor.Test.csproj", "{234B85D4-5289-45FD-A0AC-6D0A529695E9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{492A394B-DDED-4BC9-8DE5-1C9EC16B6BCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{234B85D4-5289-45FD-A0AC-6D0A529695E9} = {492A394B-DDED-4BC9-8DE5-1C9EC16B6BCF}
 	EndGlobalSection
 EndGlobal

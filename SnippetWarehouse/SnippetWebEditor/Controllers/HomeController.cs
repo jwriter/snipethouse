@@ -19,7 +19,7 @@ namespace SnippetWebEditor.Controllers
             var repo = Repository.GetInstance();
             DataForView vm = new DataForView();
 
-            object str = RouteData.Values["id"];
+            object str = RouteData?.Values["id"]??"";
             int id;
             try
             {
